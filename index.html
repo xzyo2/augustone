@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Wela</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Audio element in head to persist across transitions -->
+    <audio id="bgMusic" loop>
+        <source src="music/iris.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+</head>
+<body>
+    <div id="login-container">
+        <h1>Enter Your Name</h1>
+        <div class="input-group">
+            <input type="text" id="nameInput" placeholder="Type here...">
+            <button id="enterBtn">Enter</button>
+        </div>
+    </div>
+
+    <div id="error-container" class="hidden">
+        <div class="error-content">
+            <h1>520 Web Server Returned an Unknown Error</h1>
+            <p>The server (you) encountered an internal error or misconfiguration and was unable to complete your request.</p>
+            <p>Please contact the server administrator at webmaster@example.com to inform them of the time this error occurred, and the actions you performed just before this error.</p>
+            <p>More information about this error may be available in the server error log.</p>
+            <div class="error-details">
+                <p>Error code: 520</p>
+                <p>Visit <a href="https://example.com/520">Cloudflare Support</a> for more information.</p>
+                <p>Timestamp: <span id="timestamp"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="message-container" class="hidden">
+        <div id="message-content">
+            <p class="message" id="message1"></p>
+            <p class="message" id="message2"></p>
+            <p class="message" id="message3"></p>
+            <p class="message" id="message4"></p>
+        </div>
+    </div>
+
+    <div id="letter-container" class="hidden">
+        <div id="letter">
+            <p>Dear Wela,</p>
+            <p>I'm not the type of guy who's updated in events, I actually didn't remember girlfriend's day, as a matter of fact I don't even know when's mother's day. I'm the type of guy who wants simple things to stay simple. Despite that personality, I saw how excited you are to girlfriend's day, I saw how much you want to be babied today. Therefore, I decided that I need to make a letter for you. This letter may be simple, but I have poured my heart into writing this letter.</p>
+            
+            <p>Throughout 2025, our relationship was on the cliff, waiting for it to fall apart. I thought maybe this is the best decision for both of us, as both will now have the freedom. But who knew hiding the fact that I can't do it was gonna be so hard. Yes, I know you think na I can live without you, but you're wrong, it was hard, no one to take care of, no one to scold, and especially no one to look out for me. This whole time I had the personality of being cold, I stopped caring a lot, I stopped a ton of my naive attitude. Although I can never get my old attitude back, I will still do my best to make you feel that you're heard, loved, and taken care of. I hope you understand that I am no longer excited to issues or problems, I always choose to ignore them.</p>
+            
+            <p>But hey baby, this isn't about the issues na nangyayari ngayon. This is your day and only your day. I want to say sorry to you, lalo na sa sudden change ng ugali ko, I know you didn't expect that pero I promise this is all for me na rin as you told me na need ko rin intindihin or unahin sarili ko baby. Papatulugin, papatawanin, papakainin kahit ayaw parin naman kita baby, kasi minsan or araw araw super super duper super super ultra mega huge titanic⁹⁹⁹ pasaway ang bata. Baby kahit pasaway ka always remember na I love you okie? You make me happy palagi, from cute pictures to your silly jokes. I do appreciate your sacrifices and everything you do for me, nakikita ko lahat baby. You're a good and perfect girlfriend out there, you deserve happiness palagi kasi you look prettier when smiling. Remember na I told you to start smiling sa pictures mo kasi dati you didn't like smiling? Well see, ngayon you look so pretty and I love it so much. Keep that smile at any time okie? Even if the world seem to hate you, someone out there still wants to see you smiling, and that's me. I love you so much bata, liit, ganda, welapot, lahat na nang tawag ko sa'yo. I love every version of you.</p>
+            <p>With all my love,</p>
+            <p>Adrian</p>
+        </div>
+        <!-- Sticker Container -->
+        <div id="sticker-container">
+            <!-- Stickers will be added here by JavaScript -->
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

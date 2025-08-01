@@ -1,0 +1,502 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    transition: all 1s ease;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Login Page */
+#login-container {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 15px;
+}
+
+.input-group {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+#nameInput {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 16px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#enterBtn {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+#enterBtn:active {
+    background-color: #0056b3;
+    transform: translateY(1px);
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: hover) and (pointer: fine) {
+    #enterBtn:hover {
+        background-color: #0056b3;
+    }
+}
+
+/* Error Page */
+#error-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.error-content {
+    max-width: 800px;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.error-content h1 {
+    color: #dc3545;
+    margin-bottom: 20px;
+}
+
+.error-content p {
+    margin-bottom: 15px;
+}
+
+.error-details {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #dee2e6;
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+.error-details p {
+    margin-bottom: 8px;
+}
+
+/* Responsive Media Queries */
+@media screen and (min-width: 768px) {
+    .message {
+        font-size: 2.5em;
+        padding: 0 30px;
+    }
+    
+    #login-container {
+        padding: 30px 25px;
+    }
+    
+    .input-group {
+        flex-direction: row;
+    }
+    
+    #nameInput {
+        width: 200px;
+    }
+    
+    #enterBtn {
+        width: auto;
+    }
+}
+
+/* Adjust for very small devices */
+@media screen and (max-width: 360px) {
+    .message {
+        font-size: 1.5em;
+    }
+    
+    #login-container {
+        margin: 0 10px;
+        padding: 20px 15px;
+    }
+}
+
+/* Prevent text size adjustment on mobile devices */
+@media screen and (max-width: 480px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+}
+
+/* Quiz Styles */
+/* Quiz Container */
+#quiz-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Start hidden */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* Sticker Styles */
+.sticker {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    cursor: move;
+    user-select: none;
+    touch-action: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    will-change: transform;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+.sticker:hover {
+    transform: scale(1.1) rotate(5deg) !important;
+    z-index: 20;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    animation: none !important;
+}
+
+.sticker:active {
+    transform: scale(1.15) rotate(0deg) !important;
+    filter: drop-shadow(0 0 12px rgba(255, 105, 180, 0.9));
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    animation: none !important;
+}
+
+#sticker-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#sticker-container * {
+    pointer-events: auto;
+}
+
+/* Message Container */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+    transition: background 2s ease-in-out;
+}
+
+#message-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ffb6c1, #ff69b4, #ffb6c1, #ff8fab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: 900;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    overflow: auto;
+    padding: 20px;
+    pointer-events: none;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#message-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    margin: 15px 0;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: opacity 2s ease-in-out;
+    width: 100%;
+    padding: 0 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+/* Neon Effect */
+.neon {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4;
+    }
+}
+
+/* Sticker Container */
+#sticker-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1002;
+}
+
+.sticker {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    pointer-events: auto;
+    transition: transform 0.1s ease-out;
+    z-index: 1003;
+}
+
+.sticker:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    z-index: 1004;
+}
+
+.sticker img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Letter Container */
+#letter-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #ffb6c1, #ff69b4, #ffb6c1, #ff8fab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#letter {
+    background: white;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    transform: scale(0);
+    transition: transform 2s ease-in-out;
+    text-align: left;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    line-height: 1.6;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1001;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #ff69b4 #f8d7e3;
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+#letter::-webkit-scrollbar {
+    width: 8px;
+}
+
+#letter::-webkit-scrollbar-track {
+    background: #f8d7e3;
+    border-radius: 4px;
+}
+
+#letter::-webkit-scrollbar-thumb {
+    background-color: #ff69b4;
+    border-radius: 4px;
+}
+
+#letter::-webkit-scrollbar-thumb:hover {
+    background-color: #ff1493;
+}
+
+/* Text selection highlight */
+#letter ::selection {
+    background-color: #ffb6c1;
+    color: #000;
+}
+
+#letter ::-moz-selection {
+    background-color: #ffb6c1;
+    color: #000;
+}
+
+#letter p {
+    margin: 15px 0;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+@keyframes gradientMove {
+    0% {
+        transform: rotate(0deg);
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        transform: rotate(360deg);
+        background-position: 0% 50%;
+    }
+}
+
+#letter p {
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+#letter p:first-child {
+    font-weight: bold;
+}
+
+/* Letter signature */
+#letter p:last-child {
+    text-align: right;
+    font-style: italic;
+    margin-top: 30px;
+    color: #333;
+}
+
+#letter p:last-child {
+    text-align: right;
+    font-style: italic;
+}
